@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>for in & Object.keys()(原型)</title>
+    <!-- <script src="underscore.js"></script> -->
+</head>
+
+<body>
+
+    <script>
+        function Person(){
+
+        };
+        Person.prototype.name = 'muggle';
+        Person.prototype.age = '23';
+        Person.prototype.job = 'FE engineer';
+        Person.prototype.sayName = function(){
+            alert(this.name);
+        };
+        var person1 = new Person();
+        //for in
+        for(var prop in person1){
+            console.log(prop);
+        };
+        // Object.keys()
+        person1.hobby = 'guitar';
+        var personArr = Object.keys(person1);
+        console.log(personArr);
+    </script>
+</body>
+
+</html>

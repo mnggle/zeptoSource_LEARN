@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>getOwnPropertyDescriptor</title>
+    <!-- <script src="underscore.js"></script> -->
+</head>
+
+<body>
+
+    <script>
+        function Person(){
+
+        };
+        Person.prototype.name = 'muggle';
+        Person.prototype.age = '23';
+        Person.prototype.job = 'FE engineer';
+        Person.prototype.sayName = function(){
+            alert(this.name);
+        };
+        var person1 = new Person();
+        person1.hobby = 'guitar';
+        var desciptor = Object.getOwnPropertyDescriptor(Person.prototype,'name');
+        var desciptor2 = Object.getOwnPropertyDescriptor(Object.prototype,'toString');
+        // console.log(desciptor)
+        console.log(desciptor2)
+    </script>
+</body>
+
+</html>

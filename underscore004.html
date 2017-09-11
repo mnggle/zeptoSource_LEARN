@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>重写原型</title>
+    <!-- <script src="underscore.js"></script> -->
+</head>
+
+<body>
+
+    <script>
+        function Person(){
+
+        };
+        var friend = new Person();
+        Person.prototype = {
+            constructor:Person,
+            name:'muggle',
+            age:'23',
+            job:'FE engineer',
+            sayName:function(){
+                alert(this.name)
+            }
+        };
+        var friend2 = new Person();
+        friend2.sayName();//alert 'muggle'
+        friend.sayName();//friend.sayName is not a function
+    </script>
+</body>
+
+</html>

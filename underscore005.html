@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>原型链1</title>
+    <!-- <script src="underscore.js"></script> -->
+</head>
+
+<body>
+
+    <script>
+        function SuperType(){
+            this.property = true;
+        };
+        SuperType.property.getSuperValue = function(){
+            return this.property;
+        };
+        function subType(){
+            this.subproperty = false;
+        };
+        subType.prototype = new SuperType();
+    </script>
+</body>
+
+</html>
