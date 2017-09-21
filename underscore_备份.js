@@ -61,30 +61,22 @@
   // of the passed-in callback, to be repeatedly applied in other Underscore
   // functions.
   var optimizeCb = function(func, context, argCount) {
-    // console.log(context === void 0);
-    // console.log(func)
-    // console.log(argCount)
     if (context === void 0) return func;
     switch (argCount == null ? 3 : argCount) {
       case 1: return function(value) {
-        console.log('case 1')
         return func.call(context, value);
       };
       case 2: return function(value, other) {
-        console.log('case 2')
         return func.call(context, value, other);
       };
       case 3: return function(value, index, collection) {
-        console.log('case 3')
         return func.call(context, value, index, collection);
       };
       case 4: return function(accumulator, value, index, collection) {
-        console.log('case 4')
         return func.call(context, accumulator, value, index, collection);
       };
     }
     return function() {
-      console.log('case no')
       return func.apply(context, arguments);
     };
   };
@@ -137,10 +129,8 @@
   // Handles raw objects in addition to array-likes. Treats all
   // sparse array-likes as if they were dense.
   _.each = _.forEach = function(obj, iteratee, context) {
-    // console.log(obj)
     if (obj == null) return obj;
     iteratee = optimizeCb(iteratee, context);
-    console.log(obj.length)
     var i, length = obj.length;
     if (length === +length) {
       for (i = 0; i < length; i++) {
@@ -148,7 +138,6 @@
       }
     } else {
       var keys = _.keys(obj);
-      console.log(keys)
       for (i = 0, length = keys.length; i < length; i++) {
         iteratee(obj[keys[i]], keys[i], obj);
       }
